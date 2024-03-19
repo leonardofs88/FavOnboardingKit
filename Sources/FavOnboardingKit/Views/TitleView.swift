@@ -10,9 +10,11 @@ import UIKit
 
 class TitleView: UIView {
     
-    fileprivate let titleLabel: UILabel = {
+    private let themeFont: UIFont
+    
+    fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "ArialRoundedMTBold", size: 28)
+        label.font = themeFont
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
         label.numberOfLines = 2
@@ -20,8 +22,9 @@ class TitleView: UIView {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(themeFont: UIFont) {
+        self.themeFont = themeFont
+        super.init(frame: .zero)
         layout()
     }
     
